@@ -5,10 +5,7 @@ const app=express()
 var bodyParser=require('body-parser')
 app.use(bodyParser.urlencoded({extended:true}))
 
-app.listen(3000,function(){
-    console.log("Server is running and up")
 
-})
 
 app.get("/",function(req,res){
   res.sendFile(__dirname+"/index.html")
@@ -32,3 +29,8 @@ for (var i=0; i<sum.length;i++){
 res.send(String(tot))
     
 });
+
+app.listen(process.env.PORT || 3000,function(){
+    console.log("Server is running and up")
+
+})
